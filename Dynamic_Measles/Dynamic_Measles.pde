@@ -7,36 +7,17 @@ color quitButtonColour, measlesButtonColour;
 int smallerDimension, largerDimension;
 
 void setup() {
+  //fullScreen();
   size(1200, 900);
-  appWidth = width;
-  appHeight = height;
-  quitButtonX = appWidth/16;
-  quitButtonY = appHeight/4;
-  quitButtonWidth = appWidth/4;
-  quitButtonHeight = appHeight/8;
-  measlesButtonX = quitButtonX;
-  measlesButtonY = quitButtonY + appHeight*3/8;
-  measlesButtonWidth = quitButtonWidth;
-  measlesButtonHeight = quitButtonHeight;
-  faceX = appHeight*7/8;
-  faceY = appHeight/2;
-  faceDia = appHeight*7/8;
-  if (appWidth>=appHeight) {
-    smallerDimension = appHeight;
-    largerDimension = appWidth;
-  }
-  if (appWidth<appHeight) {
-    smallerDimension = appWidth;
-    largerDimension = appHeight;
-  }
+  population();
 }
 void draw() {
   fill(quitButtonColour);
   rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
   fill(measlesButtonColour);
   rect(measlesButtonX, measlesButtonY, measlesButtonWidth, measlesButtonHeight);
-  noFill();
-  circle(faceX, faceY, faceDia);
+  faceSetup();
+  //noFill();
 
   if (mouseX >= quitButtonX && mouseY >= quitButtonY && mouseX <= quitButtonX + quitButtonWidth && mouseY <= quitButtonY + quitButtonHeight) {
     if (nightMode==false) {
