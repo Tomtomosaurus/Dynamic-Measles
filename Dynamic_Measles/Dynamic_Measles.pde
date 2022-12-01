@@ -1,9 +1,8 @@
-Boolean sick = false, nightMode=false;
+Boolean sick = false, nightMode=false, releaseTheMeasles=false;
 int quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
 int measlesButtonX, measlesButtonY, measlesButtonWidth, measlesButtonHeight;
-int faceX, faceY, faceDia;
 int appWidth, appHeight;
-color quitButtonColour, measlesButtonColour;
+color quitButtonColour, measlesButtonColour, faceColour = color(234, 194, 140);
 int smallerDimension, largerDimension;
 
 void setup() {
@@ -12,12 +11,16 @@ void setup() {
   population();
 }
 void draw() {
+  noStroke();
   fill(quitButtonColour);
   rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
   fill(measlesButtonColour);
   rect(measlesButtonX, measlesButtonY, measlesButtonWidth, measlesButtonHeight);
   faceSetup();
-  //noFill();
+  measlesDynamic();
+  nose();
+  eyes();
+  mouth();
 
   if (mouseX >= quitButtonX && mouseY >= quitButtonY && mouseX <= quitButtonX + quitButtonWidth && mouseY <= quitButtonY + quitButtonHeight) {
     if (nightMode==false) {
@@ -45,12 +48,24 @@ void draw() {
       measlesButtonColour = color(0, 150, 0);
     }
   }
+  if (nightMode==true) {
+    //measlesColour=color(200, 0, 0);
+    measlesColour=color(random(150, 250), 0, 0);
+  } else {
+    //measlesColour=color(255, 0, 100);
+    measlesColour=color(random(100, 255), 0, random(0, 100));
+  }
 }
 void mousePressed() {
+  if (mouseX >= quitButtonX && mouseY >= quitButtonY && mouseX <= quitButtonX + quitButtonWidth && mouseY <= quitButtonY + quitButtonHeight) exit();
 }
 void keyPressed() {
   if (nightMode==false) {
     if (key=='n' || key=='N') nightMode=true;
   } else {
+    nightMode=false;
+  }
+  if (mouseX >= measlesButtonX && mouseY >= measlesButtonY && mouseX <= measlesButtonX + measlesButtonWidth && mouseY <= measlesButtonY + measlesButtonHeight) {
+    releaseTheMeasles=true;
   }
 }

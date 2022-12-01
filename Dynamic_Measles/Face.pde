@@ -1,5 +1,9 @@
+float faceX, faceY, faceDia;
+float faceSquareX, faceSquareY, faceSquareSize;
+
 void faceSetup () {
-  strokeWeight(20);
-  square(faceX-faceDia/2, faceY-faceDia/2, faceDia);
+  noFill();
+  square(faceSquareX, faceSquareY, faceSquareSize);
+  fill(faceColour);
   circle(faceX, faceY, faceDia);
 }
