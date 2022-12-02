@@ -1,13 +1,16 @@
 float leftEyeX, leftEyeY, leftEyeDiaX, leftEyeDiaY;
-float rightEyeX, rightEyeY, rightEyeDia;
+float rightEyeX, rightEyeY, rightEyeDiaX, rightEyeDiaY;
 float leftEyeRectX, leftEyeRectY, leftEyeRectWidth, leftEyeRectHeight;
-float rightEyeSquareX, rightEyeSquareY, rightEyeSquareWidth;
+float rightEyeRectX, rightEyeRectY, rightEyeRectWidth, rightEyeRectHeight;
 
 void eyes() {
   noFill();
-  square(rightEyeSquareX, rightEyeSquareY, rightEyeSquareWidth);
+  rect(rightEyeRectX, rightEyeRectY, rightEyeRectWidth, rightEyeRectHeight);
   rect(leftEyeRectX, leftEyeRectY, leftEyeRectWidth, leftEyeRectHeight);
-  fill(0);
+  fill(255);
   ellipse(leftEyeX, leftEyeY, leftEyeDiaX, leftEyeDiaY);
-  circle(rightEyeX, rightEyeY, rightEyeDia);
+  ellipse(rightEyeX, rightEyeY, rightEyeDiaX, rightEyeDiaY);
+  fill(0);
+  circle(leftEyeX, leftEyeY, leftEyeDiaY);
+  circle(rightEyeX, rightEyeY, rightEyeDiaY);
 }

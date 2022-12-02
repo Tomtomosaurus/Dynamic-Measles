@@ -33,16 +33,18 @@ void population() {
   leftEyeDiaY = appWidth/16;
   rightEyeX = faceX+appWidth/6;
   rightEyeY = leftEyeY;
-  rightEyeDia = leftEyeDiaX;
+  rightEyeDiaX = leftEyeDiaX;
+  rightEyeDiaY = leftEyeDiaY;
   leftEyeRectX = leftEyeX-leftEyeDiaX/2;
   leftEyeRectY = leftEyeY-leftEyeDiaY/2;
   leftEyeRectWidth = leftEyeDiaX;
   leftEyeRectHeight = leftEyeDiaY;
-  rightEyeSquareX = rightEyeX-rightEyeDia/2;
-  rightEyeSquareY = rightEyeY-rightEyeDia/2;
-  rightEyeSquareWidth = rightEyeDia;
+  rightEyeRectX = rightEyeX-rightEyeDiaX/2;
+  rightEyeRectY = rightEyeY-rightEyeDiaX/2;
+  rightEyeRectWidth = rightEyeDiaX;
+  rightEyeRectHeight = rightEyeDiaY;
   arcX = faceX;
-  arcY = faceY-appHeight/3;
+  arcY = faceY+appHeight/4;
   arcWidth = rightEyeX-leftEyeX;
-  arcHeight = rightEyeDia;
+  arcHeight = rightEyeDiaX;
 }
