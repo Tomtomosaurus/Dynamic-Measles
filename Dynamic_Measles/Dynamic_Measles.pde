@@ -1,14 +1,18 @@
-Boolean sick = false, nightMode=false, releaseTheMeasles=false;
-int quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
-int measlesButtonX, measlesButtonY, measlesButtonWidth, measlesButtonHeight;
+Boolean pause=false, nightMode=false, releaseTheMeasles=false, reset=false;
+float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
+float measlesButtonX, measlesButtonY, measlesButtonWidth, measlesButtonHeight;
+float pauseButtonX, pauseButtonY, pauseButtonWidth, pauseButtonHeight;
 int appWidth, appHeight;
-color quitButtonColour, measlesButtonColour, faceColour = color(234, 194, 140);
+color quitButtonColour, measlesButtonColour, pauseButtonColour, faceColour = color(234, 194, 140);
 int smallerDimension, largerDimension;
 
 void setup() {
+  frameRate(144);
   //fullScreen();
   size(1200, 900);
   population();
+  background(0);
+  faceSetup();
 }
 void draw() {
   noStroke();
@@ -16,8 +20,16 @@ void draw() {
   rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
   fill(measlesButtonColour);
   rect(measlesButtonX, measlesButtonY, measlesButtonWidth, measlesButtonHeight);
-  faceSetup();
-  measlesDynamic();
+  fill(pauseButtonColour);
+  rect(pauseButtonX, pauseButtonY, pauseButtonWidth, pauseButtonHeight);
+  if (releaseTheMeasles && pause==false) {
+    measlesDynamic();
+  }
+  if (reset) {
+    faceSetup();
+    if (releaseTheMeasles && pause==false)
+      measlesDynamic();
+  }
   nose();
   eyes();
   mouth();
@@ -48,16 +60,28 @@ void draw() {
       measlesButtonColour = color(0, 150, 0);
     }
   }
-  if (nightMode==true) {
-    //measlesColour=color(200, 0, 0);
-    measlesColour=color(random(150, 250), 0, 0);
+  if (mouseX >= pauseButtonX && mouseY >= pauseButtonY && mouseX <= pauseButtonX + pauseButtonWidth && mouseY <= pauseButtonY + pauseButtonHeight) {
+    if (nightMode) {
+      pauseButtonColour=color(200, 200, 100);
+    } else {
+      pauseButtonColour=color(100, 100, 200);
+    }
   } else {
-    //measlesColour=color(255, 0, 100);
-    measlesColour=color(random(100, 255), 0, random(0, 100));
+    if (nightMode) {
+      pauseButtonColour=color(255, 255, 0);
+    } else {
+      pauseButtonColour=color(0, 0, 255);
+    }
   }
 }
 void mousePressed() {
   if (mouseX >= quitButtonX && mouseY >= quitButtonY && mouseX <= quitButtonX + quitButtonWidth && mouseY <= quitButtonY + quitButtonHeight) exit();
+  if (mouseX >= measlesButtonX && mouseY >= measlesButtonY && mouseX <= measlesButtonX + measlesButtonWidth && mouseY <= measlesButtonY + measlesButtonHeight) releaseTheMeasles=true;
+  if (pause==false) {
+    if (mouseX >= pauseButtonX && mouseY >= pauseButtonY && mouseX <= pauseButtonX + pauseButtonWidth && mouseY <= pauseButtonY + pauseButtonHeight) pause=true;
+  } else {
+    if (mouseX >= pauseButtonX && mouseY >= pauseButtonY && mouseX <= pauseButtonX + pauseButtonWidth && mouseY <= pauseButtonY + pauseButtonHeight) pause=false;
+  }
 }
 void keyPressed() {
   if (nightMode==false) {
@@ -65,7 +89,5 @@ void keyPressed() {
   } else {
     nightMode=false;
   }
-  if (mouseX >= measlesButtonX && mouseY >= measlesButtonY && mouseX <= measlesButtonX + measlesButtonWidth && mouseY <= measlesButtonY + measlesButtonHeight) {
-    releaseTheMeasles=true;
-  }
+  if (key=='r' || key=='R') reset=true;
 }

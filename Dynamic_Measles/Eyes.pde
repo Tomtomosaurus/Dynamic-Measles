@@ -13,4 +13,4 @@ void eyes() {
   fill(0);
   circle(leftEyeX, leftEyeY, leftEyeDiaY);
   circle(rightEyeX, rightEyeY, rightEyeDiaY);
-}
+} 
