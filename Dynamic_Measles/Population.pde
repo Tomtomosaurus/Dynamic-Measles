@@ -21,9 +21,9 @@ void population() {
   faceSquareX = faceX-faceDia/2;
   faceSquareY = faceY-faceDia/2;
   faceSquareSize = faceDia;
-  noseP1X = faceX-appWidth/8;
+  noseP1X = faceX-appWidth/12;
   noseP1Y = faceY+appHeight/16;
-  noseP2X = faceX+appWidth/8;
+  noseP2X = faceX+appWidth/12;
   noseP2Y = noseP1Y;
   noseP3X = faceX;
   noseP3Y = faceY-appHeight/7;
@@ -51,4 +51,5 @@ void population() {
   arcY = faceY+appHeight/4;
   arcWidth = rightEyeX-leftEyeX;
   arcHeight = rightEyeDiaX;
+  nose = loadImage("../Images/nose.png");
 }
