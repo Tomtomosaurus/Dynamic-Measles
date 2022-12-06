@@ -15,6 +15,24 @@ void setup() {
   faceSetup();
 }
 void draw() {
+  if (mouseX >= quitButtonX && mouseY >= quitButtonY && mouseX <= quitButtonX + quitButtonWidth && mouseY <= quitButtonY + quitButtonHeight) {
+    quitButtonColour = color(255, 100, 100);
+  } else {
+    quitButtonColour = color(255, 0, 0);
+  }
+  if (mouseX >= measlesButtonX && mouseY >= measlesButtonY && mouseX <= measlesButtonX + measlesButtonWidth && mouseY <= measlesButtonY + measlesButtonHeight) {
+    measlesButtonColour = color(100, 200, 100);
+  } else {
+    measlesButtonColour = color(0, 255, 0);
+  }
+  if (mouseX >= pauseButtonX && mouseY >= pauseButtonY && mouseX <= pauseButtonX + pauseButtonWidth && mouseY <= pauseButtonY + pauseButtonHeight) {
+    pauseButtonColour=color(100, 100, 200);
+  } else {
+    pauseButtonColour=color(0, 0, 255);
+  }
+  if (nightMode) {
+    tint(255, 0, 255);
+  }
   noStroke();
   fill(quitButtonColour);
   rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
@@ -28,46 +46,6 @@ void draw() {
   nose();
   eyes();
   mouth();
-
-  if (mouseX >= quitButtonX && mouseY >= quitButtonY && mouseX <= quitButtonX + quitButtonWidth && mouseY <= quitButtonY + quitButtonHeight) {
-    if (nightMode==false) {
-      quitButtonColour = color(255, 100, 100);
-    } else {
-      quitButtonColour = color(150, 50, 50);
-    }
-  } else {
-    if (nightMode==false) {
-      quitButtonColour = color(255, 0, 0);
-    } else {
-      quitButtonColour = color(150, 0, 0);
-    }
-  }
-  if (mouseX >= measlesButtonX && mouseY >= measlesButtonY && mouseX <= measlesButtonX + measlesButtonWidth && mouseY <= measlesButtonY + measlesButtonHeight) {
-    if (nightMode==false) {
-      measlesButtonColour = color(100, 200, 100);
-    } else {
-      measlesButtonColour = color(50, 125, 50);
-    }
-  } else {
-    if (nightMode==false) {
-      measlesButtonColour = color(0, 255, 0);
-    } else {
-      measlesButtonColour = color(0, 150, 0);
-    }
-  }
-  if (mouseX >= pauseButtonX && mouseY >= pauseButtonY && mouseX <= pauseButtonX + pauseButtonWidth && mouseY <= pauseButtonY + pauseButtonHeight) {
-    if (nightMode) {
-      pauseButtonColour=color(200, 200, 100);
-    } else {
-      pauseButtonColour=color(100, 100, 200);
-    }
-  } else {
-    if (nightMode) {
-      pauseButtonColour=color(255, 255, 0);
-    } else {
-      pauseButtonColour=color(0, 0, 255);
-    }
-  }
 }
 void mousePressed() {
   if (mouseX >= quitButtonX && mouseY >= quitButtonY && mouseX <= quitButtonX + quitButtonWidth && mouseY <= quitButtonY + quitButtonHeight) exit();
