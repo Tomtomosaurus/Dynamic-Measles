@@ -25,11 +25,6 @@ void draw() {
   if (releaseTheMeasles && pause==false) {
     measlesDynamic();
   }
-  if (reset) {
-    faceSetup();
-    if (releaseTheMeasles && pause==false)
-      measlesDynamic();
-  }
   nose();
   eyes();
   mouth();
@@ -89,5 +84,9 @@ void keyPressed() {
   } else {
     nightMode=false;
   }
-  if (key=='r' || key=='R') reset=true;
+  if (key=='r' || key=='R') {
+    faceSetup();
+    if (releaseTheMeasles && pause==false)
+      measlesDynamic();
+  }
 }

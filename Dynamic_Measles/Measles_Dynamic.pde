@@ -15,7 +15,11 @@ void measlesDynamic() {
   //Dark red: ( 255, 55, 0)
   //
   noStroke();
-  fill(measlesColour);
+  if (dist(measleX, measleY, faceX, faceY)>faceDia/2) {
+    fill(0);
+  } else {
+    fill(measlesColour);
+  }
   ellipse( measleX, measleY, measleDiameter, measleDiameter );
   fill(255);
 } //End measlesDynamic
