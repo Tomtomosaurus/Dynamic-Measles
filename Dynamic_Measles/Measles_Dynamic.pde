@@ -16,7 +16,7 @@ void measlesDynamic() {
   //Dark red: ( 255, 55, 0)
   //
   noStroke();
-  if (dist(measleX, measleY, faceX, faceY) <=faceDia/2) {
+  if (dist(measleX, measleY, faceX, faceY) <= faceDia/2) {
     fill(measlesColour);
   } else {
     fill(0);
