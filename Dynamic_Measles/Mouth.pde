@@ -1,6 +1,7 @@
-float arcX, arcY, arcWidth, arcHeight;
+float mouthX, mouthY, mouthWidth, mouthHeight;
+PImage mouth;
 
 void mouth() {
   fill(color(150, 0, 0));
-  arc(arcX, arcY, arcWidth, arcHeight, PI, TWO_PI, OPEN);
+  image(mouth, mouthX, mouthY, mouthWidth, mouthHeight);
 }

@@ -34,7 +34,7 @@ void population() {
   leftEyeX = faceX-appWidth/6;
   leftEyeY = noseP3Y;
   leftEyeDiaX = appWidth/6;
-  leftEyeDiaY = appWidth/16;
+  leftEyeDiaY = appWidth/10;
   rightEyeX = faceX+appWidth/6;
   rightEyeY = leftEyeY;
   rightEyeDiaX = leftEyeDiaX;
@@ -44,12 +44,14 @@ void population() {
   leftEyeRectWidth = leftEyeDiaX;
   leftEyeRectHeight = leftEyeDiaY;
   rightEyeRectX = rightEyeX-rightEyeDiaX/2;
-  rightEyeRectY = rightEyeY-rightEyeDiaX/2;
+  rightEyeRectY = rightEyeY-rightEyeDiaY/2;
   rightEyeRectWidth = rightEyeDiaX;
   rightEyeRectHeight = rightEyeDiaY;
-  arcX = faceX;
-  arcY = faceY+appHeight/4;
-  arcWidth = rightEyeX-leftEyeX;
-  arcHeight = rightEyeDiaX;
   nose = loadImage("../Images/nose.png");
+  mouth = loadImage("../Images/mouth.png");
+  eye = loadImage("../Images/eye.png");
+  mouthX = faceX-appWidth/6;
+  mouthY = faceY+appHeight/6;
+  mouthWidth = rightEyeX-leftEyeX;
+  mouthHeight = rightEyeDiaX;
 }
