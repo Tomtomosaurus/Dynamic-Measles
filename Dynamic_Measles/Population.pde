@@ -50,6 +50,7 @@ void population() {
   nose = loadImage("../Images/nose.png");
   mouth = loadImage("../Images/mouth.png");
   eye = loadImage("../Images/eye.png");
+  eye2 = loadImage("../Images/eye2.png");
   mouthX = faceX-appWidth/6;
   mouthY = faceY+appHeight/6;
   mouthWidth = rightEyeX-leftEyeX;
