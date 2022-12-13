@@ -4,6 +4,7 @@ PImage nose;
 
 void nose() {
   noFill();
+  noStroke();
   rect(noseRectX, noseRectY, noseRectWidth, noseRectHeight);
   image(nose, noseRectX, noseRectY, noseRectWidth, noseRectHeight);
 }

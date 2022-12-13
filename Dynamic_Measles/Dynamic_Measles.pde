@@ -2,6 +2,7 @@ Boolean pause=false, nightMode=false, releaseTheMeasles=false, reset=false;
 float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
 float measlesButtonX, measlesButtonY, measlesButtonWidth, measlesButtonHeight;
 float pauseButtonX, pauseButtonY, pauseButtonWidth, pauseButtonHeight;
+float hoverOverWidth, hoverOverHeight;
 int appWidth, appHeight;
 color quitButtonColour, measlesButtonColour, pauseButtonColour, faceColour = color(234, 194, 140);
 int smallerDimension, largerDimension;
@@ -33,7 +34,6 @@ void draw() {
   if (nightMode) {
     tint(255, 0, 255);
   }
-  noStroke();
   fill(quitButtonColour);
   rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
   fill(measlesButtonColour);
@@ -44,8 +44,8 @@ void draw() {
     measlesDynamic();
   }
   nose();
-  eyes();
   mouth();
+  eyes();
 }
 void mousePressed() {
   if (mouseX >= quitButtonX && mouseY >= quitButtonY && mouseX <= quitButtonX + quitButtonWidth && mouseY <= quitButtonY + quitButtonHeight) exit();

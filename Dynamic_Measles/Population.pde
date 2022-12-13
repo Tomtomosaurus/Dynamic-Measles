@@ -55,4 +55,6 @@ void population() {
   mouthY = faceY+appHeight/6;
   mouthWidth = rightEyeX-leftEyeX;
   mouthHeight = rightEyeDiaX;
+  hoverOverWidth = appWidth/10;
+  hoverOverHeight = appWidth/16;
 }

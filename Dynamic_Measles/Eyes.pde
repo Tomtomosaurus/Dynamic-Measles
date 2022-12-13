@@ -6,5 +6,7 @@ PImage eye, eye2;
 
 void eyes() {
   image(eye, rightEyeRectX, rightEyeRectY, rightEyeRectWidth, rightEyeRectHeight);
-  image(eye2, leftEyeRectX, leftEyeRectY, leftEyeRectWidth, leftEyeRectHeight);
+  scale(-1, 1);
+  image(eye2, -leftEyeRectX-leftEyeRectWidth, leftEyeRectY, leftEyeRectWidth, leftEyeRectHeight);
+  scale(1, 1);
 }
